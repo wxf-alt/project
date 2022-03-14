@@ -9,8 +9,8 @@
         <module name="hainiu_java" />
         <module name="shanggg_scala" />
         <module name="hainiu_scala" />
-        <module name="hainiu_old_scala" />
         <module name="shanggg_java" />
+        <module name="hainiu_old_scala" />
         <module name="shangxt_java" />
         <module name="shangxt_scala" />
       </profile>
