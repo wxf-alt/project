@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>java</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>shanggg_java</artifactId>
+
+    <dependencies>
+
+        <!--   junit   -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+        </dependency>
+
+        <!--   MySql   -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>1.7</version>
+        </dependency>
+
+        <!--   Redis   -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.4.2</version>
+        </dependency>
+
+        <!--   Hadoop  -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.8.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>2.7.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>2.7.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+            <version>2.7.3</version>
+        </dependency>
+
+        <!--   Zookeeper  -->
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.4.8</version>
+        </dependency>
+
+        <!--   Hive  -->
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-jdbc</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-cli</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.pentaho</groupId>-->
+        <!--            <artifactId>pentaho-aggdesigner-algorithm</artifactId>-->
+        <!--            <version>5.1.5-jhyde</version>-->
+        <!--        </dependency>-->
+
+        <!--   Flume  -->
+        <dependency>
+            <groupId>org.apache.flume</groupId>
+            <artifactId>flume-ng-core</artifactId>
+            <version>1.8.0</version>
+        </dependency>
+
+        <!--   HBase  -->
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-server</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <!--        <build>-->
+    <!--            <resources>-->
+    <!--                <resource>-->
+    <!--                    &lt;!&ndash; 加载源码的位置 &ndash;&gt;-->
+    <!--                    <directory>src/main/resources</directory>-->
+    <!--                </resource>-->
+    <!--            </resources>-->
+    <!--            <plugins>-->
+    <!--                <plugin>-->
+    <!--                    &lt;!&ndash; 加载打包插件 &ndash;&gt;-->
+    <!--                    <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                    <artifactId>maven-assembly-plugin</artifactId>-->
+    <!--                    <configuration>-->
+    <!--                        &lt;!&ndash; 指定配置文件 &ndash;&gt;-->
+    <!--                        <descriptors>-->
+    <!--                            <descriptor>src/main/resources/assembly.xml</descriptor>-->
+    <!--                        </descriptors>-->
+    <!--    &lt;!&ndash;                    <archive>&ndash;&gt;-->
+    <!--    &lt;!&ndash;                        <manifest>&ndash;&gt;-->
+    <!--    &lt;!&ndash;                            &lt;!&ndash; 加载主要运行类 &ndash;&gt;&ndash;&gt;-->
+    <!--    &lt;!&ndash;                            <mainClass>${mainClass}</mainClass>&ndash;&gt;-->
+    <!--    &lt;!&ndash;                        </manifest>&ndash;&gt;-->
+    <!--    &lt;!&ndash;                    </archive>&ndash;&gt;-->
+    <!--                    </configuration>-->
+    <!--                    <executions>-->
+    <!--                        &lt;!&ndash; 配置执行器 &ndash;&gt;-->
+    <!--                        <execution>-->
+    <!--                            <id>make-assembly</id>-->
+    <!--                            &lt;!&ndash; 绑定到package生命周期阶段上 &ndash;&gt;-->
+    <!--                            <phase>package</phase>-->
+    <!--                            <goals>-->
+    <!--                                &lt;!&ndash; 只运行一次 &ndash;&gt;-->
+    <!--                                <goal>single</goal>-->
+    <!--                            </goals>-->
+    <!--                        </execution>-->
+    <!--                    </executions>-->
+    <!--                </plugin>-->
+    <!--                <plugin>-->
+    <!--                    &lt;!&ndash; 配置跳过单元测试 &ndash;&gt;-->
+    <!--                    <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                    <artifactId>maven-surefire-plugin</artifactId>-->
+    <!--                    <version>2.12</version>-->
+    <!--                    <configuration>-->
+    <!--                        <skip>true</skip>-->
+    <!--                        <forkMode>once</forkMode>-->
+    <!--                        <excludes>-->
+    <!--                            <exclude>**/**</exclude>-->
+    <!--                        </excludes>-->
+    <!--                    </configuration>-->
+    <!--                </plugin>-->
+    <!--            </plugins>-->
+    <!--        </build>-->
+
+
+</project>
