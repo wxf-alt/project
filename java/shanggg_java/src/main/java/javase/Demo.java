@@ -6,7 +6,7 @@ import org.junit.Test;
 public class Demo {
 
     @Test
-    public void test(){
+    public void test() {
         String s1 = "runoob";
         String s2 = "runoob";
         //  因为在 Java 中 + 操作符的优先级大于 ==，
@@ -16,43 +16,43 @@ public class Demo {
     }
 
     @Test
-    public void test2(){
+    public void test2() {
 //        int x=4;
 //        System.out.println(x++);
 
         String preserveExisting = "12";
         String key = "34";
         String value = "56";
-        System.out.println(String.format("Creating StaticInterceptor: preserveExisting=%s,key=%s,value=%s",preserveExisting, key, value));
-        System.out.printf("Creating StaticInterceptor: preserveExisting=%s,key=%s,value=%s",preserveExisting, key, value);
+        System.out.println(String.format("Creating StaticInterceptor: preserveExisting=%s,key=%s,value=%s", preserveExisting, key, value));
+        System.out.printf("Creating StaticInterceptor: preserveExisting=%s,key=%s,value=%s", preserveExisting, key, value);
     }
 
     @Test
-    public void test3(){
+    public void test3() {
         StringBuffer a = new StringBuffer("Runoob");
         StringBuffer b = new StringBuffer("Google");
         // delete(x, y) 删除从字符串 x 的索引位置开始到 y-1 的位置，append() 函数用于连接字符串。
-        a.delete(1,3); // RoobGoogle
+        a.delete(1, 3); // RoobGoogle
         a.append(b);
         System.out.println(a);
     }
 
     @Test
-    public void test4(){
+    public void test4() {
         //符合值范围时候，进入也创建好的静态IntergerCache，i+offset的值表示去取cache数组中那个下标的值
         Integer a = 100;//此处若使用new，则==值必为false
         Integer b = 100;
-        System.out.println(a==b);//true
+        System.out.println(a == b);//true
 
         //当不符合-128 127值范围时候。记住用的：new，开辟新的内存空间，不属于IntergerCache管理区
         Integer c = 150;
         Integer d = 150;
-        System.out.println(c==d);//false
+        System.out.println(c == d);//false
     }
 
 
     @Test
-    public void test5(){
+    public void test5() {
         String s1 = "aaa";
         String s2 = "aaa";
         String s9 = "aaa";
@@ -65,7 +65,7 @@ public class Demo {
     }
 
     @Test
-    public void test6(){
+    public void test6() {
         String s = "hello";
         String s2 = "he";
         String s3 = "llo";
@@ -74,6 +74,16 @@ public class Demo {
         String s5 = (s2 + s3).intern();
         System.out.println(s == s4); // false
         System.out.println(s == s5); // true
+    }
+
+    @Test
+    public void test7() {
+        for (int i = 1; i <= 100; i++){
+            if(i % 2 == 0){
+                continue;
+            }
+            System.out.println("i = " + i);
+        }
     }
 
 }

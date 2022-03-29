@@ -1,0 +1,2 @@
+    SQLContext、HiveContext 是spark1.X 使用，HiveContext extends SQLContext，如果读取hive配置使用hive功能，用HiveContext；否则用SQLContext；
+    SparkSession 是 spark 2.X 使用，在 spark2.X 版本中  SQLContext 和 HiveContext 都被SparkSession替代；

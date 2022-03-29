@@ -5,7 +5,7 @@ import java.util.Properties
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.{Column, DataFrame, SparkSession}
 
 // 1.sparkSession使用 连接 mysql 获取数据
 object SparkSqlJdbcMysqlSparkSession {
@@ -34,7 +34,7 @@ object SparkSqlJdbcMysqlSparkSession {
 
     val frame1: DataFrame = sdf.withColumn("s_examnum", $"s_examnum".cast("int"))
 
-    val array = Array(
+    val array: Array[Column] = Array(
       expr("s_id"),
       expr("s_name"),
       expr("s_examnum"),
