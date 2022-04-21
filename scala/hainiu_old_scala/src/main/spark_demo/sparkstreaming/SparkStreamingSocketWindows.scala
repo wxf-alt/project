@@ -53,7 +53,7 @@ object SparkStreamingSocketWindows {
     //      val df:DataFrame = reduceByKey.toDF
     //      df.createOrReplaceTempView("test")
     //      val df1:DataFrame = sparkSession.sql("select * from test")
-    //      val rdd: RDD[Row] = df1.rdd
+    //      val rdd: RDD[test.Row] = df1.rdd
     //    })
 
     val updateStateByKey: DStream[(String, Int)] = reduceByKey.updateStateByKey(

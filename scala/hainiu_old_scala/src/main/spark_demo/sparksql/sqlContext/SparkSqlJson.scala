@@ -33,7 +33,7 @@ object SparkSqlJson {
     df2.printSchema()
 
     // 查询num < 2 的数据
-    // type DataFrame = Dataset[Row]
+    // type DataFrame = Dataset[test.Row]
     val filter: Dataset[Row] = df.filter(df("num") < 2)
     filter.show()
 

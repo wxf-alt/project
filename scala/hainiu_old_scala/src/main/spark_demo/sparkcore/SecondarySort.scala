@@ -11,13 +11,13 @@ import org.apache.spark.{SparkConf, SparkContext}
 object SecondarySort{
   def main(args: Array[String]): Unit = {
     val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("10- WordCount 二次排序 操作")
-    val sc = new SparkContext(conf)
+    val sc: SparkContext = new SparkContext(conf)
     val rdd: RDD[String] = sc.textFile("C:\\Users\\wxf\\Desktop\\4.测试数据\\输入\\二次排序测试.txt")
     val filter: RDD[String] = rdd.filter(f => {
       if (f.contains("(") && f.contains(")")) true else false
     })
     //"(hainiu,100)"  ----> (SecondarySort(word,num), "hainiu  100")
-    val map = filter.map(f => {
+    val map: RDD[(SecondarySort, String)] = filter.map(f => {
       val str: String = f.substring(1, f.length - 1)
       val arr: Array[String] = str.split(",")
       val word: String = arr(0)
@@ -25,7 +25,7 @@ object SecondarySort{
       (new SecondarySort(word, num), s"${word}\t${num}")
     })
     // 当执行sortByKey 按照key进行排序，key是SecondarySort的对象，就会调用 该对象的比较方法进行比较
-    val sortByKey = map.sortByKey()
+    val sortByKey: RDD[(SecondarySort, String)] = map.sortByKey()
     val arr: Array[(SecondarySort, String)] = sortByKey.collect()
     for(a <- arr){
       println(a._1)

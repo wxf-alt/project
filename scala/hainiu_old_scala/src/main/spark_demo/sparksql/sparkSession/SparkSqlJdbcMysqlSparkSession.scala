@@ -86,7 +86,7 @@ object SparkSqlJdbcMysqlSparkSession {
     //      .option("dbtable", "student2")
     //      .option("user", "root")
     //      .option("password", "root").load()
-    ////    val joinDF: Dataset[Row] = sdf.join(scdf, "s_id").coalesce(5)
+    ////    val joinDF: Dataset[test.Row] = sdf.join(scdf, "s_id").coalesce(5)
     //
     //    sdf.createOrReplaceTempView("s")
     //    scdf.createOrReplaceTempView("sc")

@@ -15,7 +15,7 @@ object SparkSqlSchema {
 
     val rdd: RDD[String] = sc.textFile("/tmp/sparksql/input_text")
 
-    // RDD[String] ---> RDD[Row]
+    // RDD[String] ---> RDD[test.Row]
     // CN	game	cn.gameloft.aa	1
     val rowRdd: RDD[Row] = rdd.map(line => {
       val arr: Array[String] = line.split("\t")
