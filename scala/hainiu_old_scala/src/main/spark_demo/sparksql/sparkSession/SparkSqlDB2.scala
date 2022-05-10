@@ -2,7 +2,6 @@ package sparksql.sparkSession
 
 import java.util.Properties
 
-import org.apache.flink.types.Nothing
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{Column, DataFrame, SparkSession}

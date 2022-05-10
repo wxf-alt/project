@@ -21,7 +21,7 @@ object SparkStreamingFile {
     val ssc: StreamingContext = new StreamingContext(conf, Durations.seconds(5))
 
     // 设置读取目录
-    val localPath: String = "C:\\Users\\wxf\\Desktop\\4.测试数据\\输入"
+    val localPath: String = "E:\\A_data\\4.测试数据\\输入\\newFileInput"
     val hadoop_conf: Configuration = new Configuration()
 
     val fileDStream: InputDStream[(LongWritable, Text)] = ssc.fileStream[LongWritable, Text, TextInputFormat](localPath,

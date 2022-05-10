@@ -13,8 +13,9 @@ object CreateRdd {
     val rdd1: RDD[String] = sc.parallelize(Array("a", "b", "c", "d", "e"))
     //    val rdd1: RDD[String] = sc.makeRDD(Array("a", "b", "c", "d", "e"))
     val value: RDD[(String, Long)] = rdd1.zipWithIndex()
-    println(rdd1.collect().toBuffer)
+    println(value.collect().toBuffer)
 
+    Thread.sleep(1000000)
     sc.stop()
   }
 }
