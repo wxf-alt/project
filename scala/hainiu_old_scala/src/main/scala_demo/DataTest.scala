@@ -1,7 +1,7 @@
 import java.text.SimpleDateFormat
 import java.util.Date
 
-object dataTest {
+object DataTest {
   def main(args: Array[String]): Unit = {
     // 前七天
     var date = new Date(); //获取系统当前时间

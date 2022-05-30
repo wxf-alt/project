@@ -8,8 +8,7 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
 // scan 'idea_spark:spark_user',{COLUMNS => ['cf1:count'],STARTROW => 'spark_put_20'}
-// rdd的一个元素创建一个连接，效率低
-// 一条数据创建一个连接，并且一条一条插入
+// 一组数据创建一个链接，输入
 object SparkHbaseBatchPutTable {
   def main(args: Array[String]): Unit = {
     val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("SparkHbaseBatchPutTable")

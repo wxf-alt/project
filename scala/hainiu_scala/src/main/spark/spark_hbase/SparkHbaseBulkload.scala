@@ -56,7 +56,7 @@ object SparkHbaseBulkload {
     //		/user/hadoop/hbase/output/orc2hfile_0725 user_install_status
     val inputParams: Array[String] = Array(outputPath, tableName)
     // 将ArrayBuffer 转成 ArrayList
-    import scala.collection.JavaConversions._
+//    import scala.collection.JavaConversions._
     LoadIncrementalHFiles.main(inputParams)
 
 //    val arr: ArrayBuffer[String] = ArrayBuffer[String](outputPath, tableName)

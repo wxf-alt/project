@@ -23,7 +23,7 @@ object SparkSqlDB2 {
     val d2: Dataset[String] = df.map(f => {
       f(1).toString
     })
-    d2.show(20)
+    d2.show(100000000)
 
   }
 }

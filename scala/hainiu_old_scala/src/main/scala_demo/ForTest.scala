@@ -8,7 +8,7 @@ import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, HashSet, ListBuffer}
 import scala.util.control.Breaks
 
-object forTest {
+object ForTest {
 
   def main(args: Array[String]): Unit = {
     val buffer: ArrayBuffer[String] = fieldToArray()

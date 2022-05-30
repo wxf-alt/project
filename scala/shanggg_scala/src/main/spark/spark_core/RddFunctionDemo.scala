@@ -13,8 +13,10 @@ object RddFunctionDemo {
     val searcher: Searcher = new Searcher("hello")
     // 传递函数
 //    val result: RDD[String] = searcher.getMatchedRDD1(rdd)
+
     // 传递变量
     val result: RDD[String] = searcher.getMatchedRDD2(rdd)
+
     println(result.collect.toBuffer)
   }
 }

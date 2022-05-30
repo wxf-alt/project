@@ -1,14 +1,14 @@
 package spark_streaming.streaming
 
 import org.apache.spark.SparkConf
-import org.apache.spark.rdd.RDD
-import org.apache.spark.streaming.dstream.ReceiverInputDStream
-import org.apache.spark.streaming.{Durations, StreamingContext}
+import org.apache.spark.rdd.{PairRDDFunctions, RDD}
+import org.apache.spark.streaming.dstream.{DStream, ReceiverInputDStream}
+import org.apache.spark.streaming.{Durations, Seconds, StreamingContext}
 
 object SparkStreamingSocket {
   def main(args: Array[String]): Unit = {
     val conf: SparkConf = new SparkConf().setAppName("SparkStreamingSocket").setMaster("local[2]")
-    val ssc = new StreamingContext(conf, Durations.seconds(5))
+    val ssc: StreamingContext = new StreamingContext(conf, Durations.seconds(5))
     // 该计算方式的缓存默认级别：StorageLevel.MEMORY_AND_DISK_SER_2
     // 从socket端接收一行数据，数据是按照空格分隔的
     val inputDS: ReceiverInputDStream[String] = ssc.socketTextStream("localhost", 6666)
@@ -30,11 +30,14 @@ object SparkStreamingSocket {
 //      println(s"count time:${t}, ${r.collect().toList}")
 //    })
 
+    ssc.remember(Seconds(15))
+
     // foreachRDD 方式
     inputDS.foreachRDD((rdd,t) =>{
       val reduceByKey: RDD[(String, Int)] = rdd.flatMap(_.split(" ")).map((_, 1)).reduceByKey(_ + _)
       println(s"count time:${t}, ${reduceByKey.collect().toList}")
     })
+
 
     ssc.start()
     ssc.awaitTermination()

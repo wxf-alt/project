@@ -6,6 +6,7 @@ import org.apache.hadoop.hbase.client.Put
 import org.apache.hadoop.hbase.mapreduce.TableOutputFormat
 import org.apache.hadoop.hbase.util.Bytes
 import org.apache.hadoop.io.NullWritable
+import org.apache.hadoop.mapred.JobConf
 import org.apache.hadoop.mapreduce.MRJobConfig
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
@@ -37,6 +38,7 @@ object SparkHbaseTableOutputFormatPutTable {
     // 内部执行的逻辑，每个分区创建TableOutputFormat对象，调用getRecordWriter 来获取对应写入对象，
     // 初始化 RecordWriter 对象时，会创建hbase连接， 一行一行写入数据
     pairRdd.saveAsNewAPIHadoopDataset(hbaseConf)
+//    pairRdd.saveAsHadoopDataset(new JobConf(hbaseConf))
 
   }
 }

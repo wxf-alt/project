@@ -1,0 +1,39 @@
+<!--<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"-->
+<!--          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">-->
+<!--    &lt;!&ndash; TODO: a jarjar format would be better &ndash;&gt;-->
+<!--    &lt;!&ndash; 添加到生成文件名称的后缀符 &ndash;&gt;-->
+<!--    <id>wxf</id>-->
+<!--    &lt;!&ndash; 打包类型 &ndash;&gt;-->
+<!--    <formats>-->
+<!--        <format>jar</format>-->
+<!--    </formats>-->
+<!--    &lt;!&ndash;  指定是否包含打包层目录 &ndash;&gt;-->
+<!--    <includeBaseDirectory>false</includeBaseDirectory>-->
+<!--    &lt;!&ndash; 指定要包含的文件集 &ndash;&gt;-->
+<!--    <fileSets>-->
+<!--        <fileSet>-->
+<!--            &lt;!&ndash; 指定目录 &ndash;&gt;-->
+<!--            <directory>${project.build.directory}/classes</directory>-->
+<!--            &lt;!&ndash; 指定文件集合的输出目录，该目录是相对于根目录 &ndash;&gt;-->
+<!--            <outputDirectory>/</outputDirectory>-->
+<!--            &lt;!&ndash; 排除文件 &ndash;&gt;-->
+<!--            <excludes>-->
+<!--                <exclude>*.xml</exclude>-->
+<!--                <exclude>*.properties</exclude>-->
+<!--            </excludes>-->
+<!--        </fileSet>-->
+<!--    </fileSets>-->
+<!--    &lt;!&ndash; 用来定制工程依赖 jar 包的打包方式 &ndash;&gt;-->
+<!--    <dependencySets>-->
+<!--        <dependencySet>-->
+<!--            &lt;!&ndash; 指定包依赖目录，该目录是相对于根目录 &ndash;&gt;-->
+<!--            <outputDirectory>/</outputDirectory>-->
+<!--            &lt;!&ndash; 当前项目构件是否包含在这个依赖集合里 &ndash;&gt;-->
+<!--            <useProjectArtifact>false</useProjectArtifact>-->
+<!--            &lt;!&ndash; 是否将第三方jar包解压到该依赖中 false 直接引入jar包 true解压引入 &ndash;&gt;-->
+<!--            <unpack>true</unpack>-->
+<!--            &lt;!&ndash; 将scope为runtime的依赖包打包到lib目录下。 &ndash;&gt;-->
+<!--            <scope>runtime</scope>-->
+<!--        </dependencySet>-->
+<!--    </dependencySets>-->
+<!--</assembly>-->

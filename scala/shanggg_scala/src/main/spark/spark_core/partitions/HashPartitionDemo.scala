@@ -1,4 +1,4 @@
-package spark_core.hbase
+package spark_core.partitions
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{HashPartitioner, SparkConf, SparkContext}
