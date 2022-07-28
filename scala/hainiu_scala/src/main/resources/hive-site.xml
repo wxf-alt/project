@@ -1,0 +1,108 @@
+<!-- Linux 配置 -->
+<configuration>
+	<!-- 数据库 start -->
+	<property>
+	  <name>javax.jdo.option.ConnectionURL</name>
+	  <value>jdbc:mysql://s5.hadoop:3306/hive_meta</value>
+	  <description>mysql连接</description>
+	</property>
+
+	<property>
+	  <name>javax.jdo.option.ConnectionDriverName</name>
+	  <value>com.mysql.jdbc.Driver</value>
+	  <description>mysql驱动</description>
+	</property>
+
+	<property>
+	  <name>javax.jdo.option.ConnectionUserName</name>
+	  <value>hive</value>
+	  <description>数据库使用用户名</description>
+	</property>
+
+	<property>
+	  <name>javax.jdo.option.ConnectionPassword</name>
+	  <value>hive</value>
+	  <description>数据库密码</description>
+	</property>
+	<!-- 数据库 end -->
+
+<!--	&lt;!&ndash; HDFS start &ndash;&gt;-->
+<!--	<property>-->
+<!--	  <name>hive.metastore.warehouse.dir</name>-->
+<!--	  <value>/hive/warehouse</value>-->
+<!--	  <description>hive使用的HDFS目录</description>-->
+<!--	</property>-->
+<!--	&lt;!&ndash; HDFS end &ndash;&gt;-->
+
+<!--    &lt;!&ndash; metastore start &ndash;&gt;-->
+<!--	<property>-->
+<!--	  <name>hive.metastore.schema.verification</name>-->
+<!--	  <value>false</value>-->
+<!--      <description>metastore start 在客户端使用时，mysql连接和metastore同时出现在配置文件中，客户端会选择使用metastore</description>-->
+<!--	</property>-->
+
+<!--	<property>-->
+<!--	  <name>hive.metastore.uris</name>-->
+<!--	  <value>thrift://nn1.hadoop:9083</value>-->
+<!--      <description>metastore服务器URL</description>-->
+<!--	</property>-->
+<!--	&lt;!&ndash; metastore end &ndash;&gt;-->
+
+<!--    &lt;!&ndash; hiveserver start &ndash;&gt;-->
+<!--    &lt;!&ndash; HiveServer2提供了JDBC链接操作Hive的功能，非常实用，但如果在使用HiveServer2时候，不注意安全控制，将非常危险，因为任何人都可以作为超级用户来操作Hive及HDFS数据。&ndash;&gt;-->
+<!--	<property>-->
+<!--	  <name>hive.server2.authentication</name>-->
+<!--	  <value>NONE</value>-->
+<!--      <description>身份验证模式，默认为NONE。选项为NONE（使用普通SASL），NOSASL，KERBEROS，LDAP，PAM和CUSTOM。</description>-->
+<!--	</property>-->
+
+<!--	<property>-->
+<!--	  <name>hive.server2.thrift.bind.host</name>-->
+<!--	  <value>nn1.hadoop</value>-->
+<!--	  <description>hive开启的thriftServer地址</description>-->
+<!--	</property>-->
+
+<!--	<property>-->
+<!--	  <name>hive.server2.thrift.port</name>-->
+<!--	  <value>10000</value>-->
+<!--	  <description>hive开启的thriftServer端口</description>-->
+<!--	</property>-->
+
+<!--	<property>-->
+<!--	  <name>hive.server2.enable.doAs</name>-->
+<!--	  <value>true</value>-->
+<!--      <description>默认情况下(true)，HiveServer2以提交查询的用户身份执行查询处理。但是，如果将以下参数设置为false，则查询将作为hiveserver2进程运行的用户运行。</description>-->
+<!--	</property>-->
+<!--	&lt;!&ndash; hiveserver end &ndash;&gt;-->
+
+<!--	&lt;!&ndash; 其它 start &ndash;&gt;-->
+<!--	<property>-->
+<!--	  <name>datanucleus.autoCreateSchema</name>-->
+<!--	  <value>false</value>-->
+<!--      <description>creates necessary schema on a startup if one doesn't exist. set this to false, after creating it once（HIVE-1841）</description>-->
+<!--	</property>-->
+
+<!--	<property>-->
+<!--	  <name>datanucleus.fixedDatastore</name>-->
+<!--	  <value>true</value>-->
+<!--      <description>Disable updates to the schema once it has been created.（HIVE-1841）</description>-->
+<!--	</property>-->
+
+<!--	<property>-->
+<!--	  <name>datanucleus.autoStartMechanism</name>-->
+<!--	  <value>SchemaTable</value>-->
+<!--      <description>多并发读取失败的问题（HIVE-4762）</description>-->
+<!--	</property>-->
+
+<!--	<property>-->
+<!--	  <name>hive.cli.print.current.db</name>-->
+<!--	  <value>true</value>-->
+<!--      <description>是否显示当前操作database名称，默认不显示</description>-->
+<!--	</property>-->
+<!--   	<property>-->
+<!--	  <name>hive.cli.print.header</name>-->
+<!--	  <value>true</value>-->
+<!--      <description>是否显示表头,默认不显示</description>-->
+<!--	</property>-->
+<!--	&lt;!&ndash; 其它 end &ndash;&gt;-->
+</configuration>

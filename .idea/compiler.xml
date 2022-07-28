@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="hainiu_java" />
+        <module name="shanggg_scala" />
+        <module name="hainiu_scala" />
+        <module name="hainiu_old_scala" />
+        <module name="shanggg_java" />
+        <module name="shangxt_java" />
+        <module name="shangxt_scala" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

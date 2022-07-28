@@ -1,0 +1,12 @@
+内置数据输出
+    1.基于文件:
+        #使用TextOutputFormat
+        stream.writeAsText("/path/to/file")
+        #使用CsvOutputFormat
+        stream.writeAsCsv("/path/to/file")
+    2.基于Socket
+        stream.writeToSocket(host, port, SerializationSchema)
+    3.基于标准/错误输出
+        #注: 线上应用杜绝使用，采用抽样打印或者日志的方式
+        stream.print()
+        stream.printToErr()
