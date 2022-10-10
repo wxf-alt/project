@@ -28,5 +28,6 @@ object SparkSessionTest3 {
     mySqlDF1.withColumn("性别", when($"s_sex" === 1,"男").when($"s_sex" === 0,"女"))
       .show(20)
 
+
   }
 }

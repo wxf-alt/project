@@ -18,6 +18,7 @@ object MyReceiver {
       .setAppName("MyReceiver")
     // 1.创建 StreamingContext
     val ssc: StreamingContext = new StreamingContext(conf, Seconds(3))
+
     val sourceStream: ReceiverInputDStream[String] = ssc.receiverStream(new MyReceiver("localhost", 6666))
     val result: DStream[(String, Int)] = sourceStream.flatMap(_.split(" "))
       .map((_, 1))

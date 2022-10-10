@@ -7,7 +7,7 @@ import org.apache.spark.streaming.{Durations, Seconds, StreamingContext}
 
 object SparkStreamingSocket {
   def main(args: Array[String]): Unit = {
-    val conf: SparkConf = new SparkConf().setAppName("SparkStreamingSocket").setMaster("local[2]")
+    val conf: SparkConf = new SparkConf().setAppName("SparkStreamingSocket").setMaster("local[*]")
     val ssc: StreamingContext = new StreamingContext(conf, Durations.seconds(5))
     // 该计算方式的缓存默认级别：StorageLevel.MEMORY_AND_DISK_SER_2
     // 从socket端接收一行数据，数据是按照空格分隔的
@@ -29,8 +29,6 @@ object SparkStreamingSocket {
 //    reduceByKeyDS.foreachRDD((r,t) =>{
 //      println(s"count time:${t}, ${r.collect().toList}")
 //    })
-
-    ssc.remember(Seconds(15))
 
     // foreachRDD 方式
     inputDS.foreachRDD((rdd,t) =>{
