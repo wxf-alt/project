@@ -32,6 +32,5 @@ object TestDemo {
     val sdf: DataFrame = sparkSession.read.jdbc("jdbc:mysql://localhost:3306/db", "student1", props)
 
     sdf.show(20)
-
   }
 }
