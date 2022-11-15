@@ -4,7 +4,7 @@ import java.util.Properties
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 
 /**
  * @Auther: wxf
@@ -23,11 +23,13 @@ object SparkSessionTest3 {
     properties.setProperty("user","root")
     properties.setProperty("password","root")
 
-    val mySqlDF1: DataFrame = sparkSession.read.jdbc("jdbc:mysql://localhost:3306/db", "student1", properties)
+    val mySqlDF1: DataFrame = sparkSession.read.jdbc("jdbc:mysql://localhost:3306/db", "student1", properties).repartition(5)
+    println("mySqlDF1 分区数：" + mySqlDF1.rdd.getNumPartitions)
+    val mySqlDF2: DataFrame = sparkSession.read.jdbc("jdbc:mysql://localhost:3306/db", "student2", properties).repartition(2)
+    println("mySqlDF1 分区数：" + mySqlDF2.rdd.getNumPartitions)
 
-    mySqlDF1.withColumn("性别", when($"s_sex" === 1,"男").when($"s_sex" === 0,"女"))
-      .show(20)
-
+    val value: Dataset[Row] = mySqlDF1.union(mySqlDF2)
+    println("mySqlDF1 分区数：" + value.rdd.getNumPartitions)
 
   }
 }
