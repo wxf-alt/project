@@ -26,15 +26,16 @@ import scala.collection. mutable
 object SparkStreamingKafkaOffsetZKForeachRDD {
   def main(args: Array[String]): Unit = {
     //指定组名
-    val group: String = "group2"
+    val group: String = "group_test"
     //创建SparkConf
     val conf: SparkConf = new SparkConf().setAppName("SparkStreamingKafkaOffsetZK").setMaster("local[*]")
     //创建SparkStreaming，设置间隔时间
     val ssc: StreamingContext = new StreamingContext(conf, Durations.seconds(5))
     //指定 topic 名字
-    val topic: String = "hainiu_test"
+    val topic: String = "topic_event"
     //指定kafka的broker地址，SparkStream的Task直连到kafka的分区上，用底层的API消费，效率更高
-    val brokerList: String = "s2.hadoop:9092,s3.hadoop:9092,s4.hadoop:9092"
+//    val brokerList: String = "s2.hadoop:9092,s3.hadoop:9092,s4.hadoop:9092"
+    val brokerList: String = "nn1.hadoop:9092,nn2.hadoop:9092,s1.hadoop:9092"
     //指定zk的地址，更新消费的偏移量时使用，当然也可以使用Redis和MySQL来记录偏移量
     val zkQuorum: String = "nn1.hadoop:2181,nn2.hadoop:2181,s1.hadoop:2181"
     //SparkStreaming时使用的topic集合，可同时消费多个topic

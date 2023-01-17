@@ -26,22 +26,26 @@ object ReduceFoldAggregation {
     env.setParallelism(1)
 
     val tuple = List(
-      ("hainiu", "class12", "小王", 50),
-      ("hainiu", "class12", "小李", 55),
-      ("hainiu", "class11", "小张", 50),
+      ("hainiu", "class12", "小王", 70),
+      ("hainiu", "class12", "小a", 80),
+      ("hainiu", "class12", "小李", 50),
+      ("hainiu", "class11", "小张", 55),
       ("hainiu", "class11", "小强", 45))
-    val text = env.fromCollection(tuple)
+    val text = env.fromCollection(tuple).setParallelism(1)
 
-    val keyBy: KeyedStream[(String, Int), String] = text
-      .map(f => (f._2, 1))
-      .keyBy(_._1)
-    //相同的key的数据聚合在一起使用reduce求合，使用的时候注意与spark不同的地方是key也参与运算
-    val reduce: DataStream[(String, Int)] = keyBy.reduce((f1, f2) => (f1._1, f1._2 + f2._2))
-    reduce.print("reduce")
+    text.keyBy(_._1).min(3).print("min：")
+    text.keyBy(_._1).minBy(3).print("minBy：")
 
-    //使用fold完成和reduce一样的功能，不同的是这里的返回值类型由fold的第一个参数决定
-    val fold: DataStream[(String, Int)] = keyBy.fold(("",0))((a,b) => (b._1,a._2 + b._2))
-    fold.print()
+    //    val keyBy: KeyedStream[(String, Int), String] = text
+    //      .map(f => (f._2, 1))
+    //      .keyBy(_._1)
+    //    //相同的key的数据聚合在一起使用reduce求合，使用的时候注意与spark不同的地方是key也参与运算
+    //    val reduce: DataStream[(String, Int)] = keyBy.reduce((f1, f2) => (f1._1, f1._2 + f2._2))
+    //    reduce.print("reduce")
+    //
+    //    //使用fold完成和reduce一样的功能，不同的是这里的返回值类型由fold的第一个参数决定
+    //    val fold: DataStream[(String, Int)] = keyBy.fold(("",0))((a,b) => (b._1,a._2 + b._2))
+    //    fold.print()
 
     env.execute("ReduceFoldAggregation")
   }
